@@ -1,0 +1,373 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('https://fromabirdseyeview.com/wp-content/uploads/2025/01/healthy.jpg'); /* पाठीमागचा फोटो */
+    background-size: cover; /* ✅ Image zoom होणार नाही */
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 50px; /* कार्ड्समधील गॅप */
+}
+
+/* ✅ वरचे 2 कार्ड व्यवस्थित ठेवण्यासाठी */
+.top-cards {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px; /* 🔥 Gap वाढवला */
+    margin-top: 80px; /* 🔥 वरचे कार्ड खाली आणण्यासाठी */
+}
+
+
+
+/* ✅ खालचा कार्ड खाली ठेवण्यासाठी */
+.bottom-card {
+    display: flex;
+    justify-content: center;
+}
+
+/* ✅ कार्ड स्टाइल */
+.card {
+    width:230px;
+    height: 280px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 20px;
+    text-align: center;
+    position: relative;
+
+    justify-content: center;  /* 🔥 टेक्स्ट पूर्ण CENTER मध्ये येईल */
+    backdrop-filter: blur(12px); /* 🔥 Blur Effect वाढवला */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* हलकासा White Border */
+
+    background: rgba(255, 255, 255, 0.25); /* 🔥 हलकं White + Transparent (0.25) */
+}
+
+/* ✅ सर्कल नीट दिसण्यासाठी */
+.card-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: -50px;
+
+     
+}
+
+.card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover; /* ✅ Image नीट Adjust होईल */
+}
+
+.card p {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* ✅ टेक्स्ट पूर्ण HEIGHT व्यापेल */
+}
+
+.card:hover {
+    transform: scale(1.1); /* 🔥 10% enlarge */
+    transition: transform 0.3s ease-in-out; /* 🔄 Smooth effect */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* 🌟 Extra shadow for popup effect */
+}
+
+#questionContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    background: url('https://img.freepik.com/premium-photo/woman-want-lose-weight-with-centimeter-shape-up-healthy-stomach-muscle-diet-measuring-waist-with-measure-tape-after-diet-weight-control_1715-15369.jpg') no-repeat center center/cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: none;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    background: #28a745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+button:hover {
+    background: #218838;
+}
+
+
+.answerInput {
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+ .result-popup {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  min-width: 250px;
+  background: #fff8e1;
+  border: 2px solid #ffc107;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 999;
+}
+
+#face-analyze-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 800px;
+  height: auto;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  backdrop-filter: none; /* 👉 हे काढलं, कारण आपण pseudo-element वापरत आहोत */
+  background: transparent; /* 👉 कुठलाही रंग नको */
+  position: fixed;
+}
+
+#face-analyze-popup::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url('https://st4.depositphotos.com/1071909/30078/i/450/depositphotos_300787782-stock-photo-face-identification-tablet-protection.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(1px); /* ✅ फक्त image blur केली */
+  opacity: 1; /* ✅ full visibility */
+  z-index: -1; /* ✅ हे खूप महत्वाचं – content मागे राहील */
+}
+
+
+
+
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .small-container {
+    text-align: center;
+  }
+  
+  .card {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.7);
+    margin: 15px;
+  }
+  
+  .card-circle img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  
+  .video-circle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    
+  }
+  
+  .circle-frame {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #aaa;
+    position: relative;
+    background-color: #f2f2f2;
+    overflow: visible; /* 👈 VERY IMPORTANT */
+  }
+  
+  
+  .circle-frame video,
+  .circle-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .camera-icon-btn {
+    position: absolute;
+    top: -25px; /* 👆 Move above the circle */
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .camera-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+   
+  .popup-body-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+  }
+  
+  
+
+  #face-analyze-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 600px; /* 👈 UPDATED WIDTH */
+    height: auto;
+    backdrop-filter: blur(5px); /* optional for blur effect */
+    background-color: rgba(255, 166, 0, 0.347)    ; /* हलकं Transparent Orange */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+  
+  
+
+  .video-circle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+#analysis-result {
+  font-size: 18px;
+  padding: 20px 25px;
+  background-color: #fff3cd;
+  color: #856404;
+  border: 2px solid #ffa500;
+  border-radius: 16px;
+  width: 240px;
+  text-align: center;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.circle-frame {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid #aaa;
+  position: relative;
+  background-color: #f2f2f2;
+  overflow: visible;  /* 👈 खूप महत्त्वाचं */
+}
+
+
+.circle-frame video,
+.circle-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+ 
+
+
+.camera-icon-btn {
+  position: absolute;
+  top: 70%;      /* 🔽 वरून 60% = अर्धा circle पेक्षा खाली */
+  left: 10px;   /* ⬅️ circle च्या डावीकडे बाहेर */
+  background: white;
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.camera-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+

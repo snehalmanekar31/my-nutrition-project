@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+     
+
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form onsubmit="return loginUser(event)">
+                <input type="email" id="email" placeholder="Email ID" autocomplete="off" required>
+                <input type="password" id="password" placeholder="Password" autocomplete="off" required>
+            
+                <a href="javascript:void(0);" class="forgot-password" onclick="openForgotPopup()">Forgot Password?</a>
+
+                <button type="submit">Login</button>
+            </form>
+            
+            <div class="signup-text">
+                New User? <a href="#">Sign-Up</a>
+            </div>
+        </div>
+
+        <div class="doctor-image">
+            <img src="https://img.freepik.com/premium-vector/woman-doctor-nutritionist-health-care-weight-loss-concept-vector-illustration_529344-1536.jpg?w=826" alt="Doctor Image">
+        </div>
+        
+        <script src="login.js"></script>
+        <script>
+        function closePopup() {
+            parent.document.body.removeChild(parent.document.getElementById("popupFrame"));
+        }
+    </script>
+
+        <script>
+            function openForgotPopup() {
+                const iframe = document.createElement("iframe");
+                iframe.src = "forget_password.html";
+                iframe.id = "popupFrame";
+                iframe.style.position = "fixed";
+                iframe.style.top = "0";
+                iframe.style.left = "0";
+                iframe.style.width = "100%";
+                iframe.style.height = "100%";
+                iframe.style.border = "none";
+                iframe.style.zIndex = "999";
+                document.body.appendChild(iframe);
+            }
+            </script>
+            
+  
+
+</body>
+
+</html>

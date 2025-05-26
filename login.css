@@ -1,0 +1,162 @@
+ /* Full-page background */
+body {
+     
+ 
+
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center; /* ✅ Centers horizontally */
+    align-items: center; /* ✅ Centers vertically */
+    background: url(' https://png.pngtree.com/background/20250103/original/pngtree-close-up-of-healthy-nutrition-concept-on-white-textured-background-picture-image_13439482.jpg') no-repeat center center;
+    background-size: cover; /* ✅ Ensures full page coverage */
+    background-attachment: fixed; /* ✅ Keeps image fixed while scrolling */
+     
+}
+
+
+
+/* Login container */
+
+
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* ✅ Space between login box and doctor image */
+    height: 100vh;
+
+    position: relative;
+}
+.login-box {
+     
+    width: 300px;
+    height: 340px;
+    padding: 20px;
+    background: rgba(255, 165, 0, 0.3); /* ✅ Transparent Orange */
+    border-radius: 9px; /* ✅ Smooth edges */
+    transform: translateX(330px); /* ✅ Login box right ला हलतो */
+    flex-direction: column;
+    
+    text-align: center;
+    backdrop-filter: blur(10px); /* ✅ Glass effect */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     
+    
+     
+}
+
+
+
+button:hover {
+    transform: scale(1.1); /* ✅ Popup effect */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* ✅ Shadow effect */
+}
+
+.doctor-image img {
+    width: 380px;
+    height: 400px;
+    mix-blend-mode: multiply; /* ✅ Background Remove Effect */
+    background: none;
+    margin-left: 200px; /* ✅ Doctor image right ला हलवण्यासाठी */
+     
+}
+
+ 
+
+
+/* Login Title */
+.login-box h2 {
+    font-family: 'Arial Black', Bodoni MT ; /* ✅ Stylish Font */
+    font-size: 24px; /* ✅ Makes text bigger */
+    font-weight: bold; /* ✅ Makes it bold */
+    color: black; /* ✅ White text for better visibility */
+    margin-bottom: 15px;
+}
+
+/* Form styling */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    border: 2px solid #ccc; /* ✅ हलकासा बॉर्डर */
+    border-radius: 5px; /* ✅ कोपरे थोडे वळवले */
+    background-color: white; /* ✅ बॅकग्राउंड वाइट */
+    font-size: 16px;
+    margin-bottom: 15px; /* ✅ Email आणि Password मधे gap */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border: 2px solid blue; /* ✅ फोकस झाल्यावर ब्लू बॉर्डर */
+    outline: none;
+}
+
+
+/* Forgot Password Styling */
+.forgot-password {
+    font-family: 'Arial Black', Bodoni MT ; /* ✅ Stylish Font */
+    text-align: center; /* ✅ Centers text */
+    width: 100%;
+    font-size: 16px;  /* ✅ Increase font size */
+    display: block;
+    font-size: 14px;
+    color: rgb(108, 23, 111);
+    text-decoration: none;
+    margin-top: 10px; /* ✅ Moves it slightly down */
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Login Button */
+button {
+    width: 40%;
+    padding: 10px;
+    background-color: #f9a932;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold; /* ✅ Makes text bold */
+    font-size: 16px; /* ✅ Increases text size */
+    margin-left: auto;
+    margin-right: auto; /* ✅ Centers the button */
+    text-align: center;
+    margin-top: 20px; /* ✅ Increased spacing */
+}
+
+button:hover {
+    background-color: #f9a932; /* ✅ Light orange on hover */
+}
+
+
+/* Signup Text */
+.signup-text {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.signup-text a {
+    color: rgb(114, 18, 111);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+

@@ -1,0 +1,124 @@
+ /* ✅ Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ✅ Page Background Image */
+body {
+    background: url('https://img.pikbest.com/wp/202343/healthy-nutrition-close-up-of-concept-on-white-textured-background_9988050.jpg!bw700') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* ✅ Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.6); /* Transparent Black */
+}
+
+
+
+/* Nav bar Right Side ला हलवला */
+.nav-right {
+   /* background: #f8f9fa;*/
+    padding: 15px 0;
+    text-align: right;
+    padding-right: 30px;
+}
+
+.nav-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-right ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav-right ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /* ✅ Google Font Import */
+
+.hero {
+    display: flex;
+    justify-content: center; /* Horizontally Center */
+    align-items: center; /* Vertically Center */
+    height: 100vh; /* Full Page Height */
+    background: none;
+}
+
+
+.site-title {
+    font-size: 55px;  /* टेक्स्ट मोठा करायचा */
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold; /* फॉन्ट बॉल्ड करायचा */
+    color: black; /* रंग ब्लॅक ठेवायचा */
+    position: absolute; /* टेक्स्टला मूव्ह करण्यासाठी */
+    top: 40%; /* वर हलवण्यासाठी */
+    right: 10%; /* उजवीकडे हलवण्यासाठी */
+    transform: translate(-50%, -50%); /* परफेक्ट पॉझिशनिंगसाठी */
+}
+
+.site-subtitle {
+    font-size: 29px;  /* Subtitle टेक्स्टचा साईज */
+    font-family: 'Cursive', italic; /* वेगळा फॉन्ट */
+    font-weight: bold;
+    color: #555; /* हलका ब्लॅक */
+    position: absolute; /* Subtitle ला मूव्ह करण्यासाठी */
+    top: 50%; /* NutriCheck च्या खाली ठेवण्यासाठी */
+    right: -30%; /* उजवीकडे ठेवण्यासाठी */
+    transform: translate(-50%, -50%); /* अचूक केंद्रित करण्यासाठी */
+}
+
+
+
+
+
+
+
+/* ✅ Hero Content */
+/*.hero-content {
+    background: rgba(0, 0, 0, 0.5); /* Transparent background */
+   /* padding: 30px;
+    border-radius: 10px;
+}
+
+/* ✅ Buttons */
+.btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.green {
+    background: #28a745;
+    color: white;
+}
+
+.green:hover {
+    background: #218838;
+}
+
+.orange {
+    background: #ff8800;
+    color: white;
+}
+
+.orange:hover {
+    background: #e07b00;
+}

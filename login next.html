@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Analysis</title>
+    <link rel="stylesheet" href="login next.css">
+</head>
+<body>
+
+    <div class="top-cards">
+        <div class="card" id="bodyTypeCard" onclick="openQuestionnaire()">
+            <div class="card-circle">
+                <img src="https://png.pngtree.com/png-vector/20240710/ourmid/pngtree-the-shape-of-a-man-in-a-colorful-circle-vector-png-image_7046398.png" alt="Body Type">
+            </div>
+            <p>Body Type Detection Questionnaire</p>
+        </div>
+
+
+        <div class="card" onclick="openFaceAnalyzePopup()">
+            <div class="card-circle">
+                <img src="https://i.swncdn.com/media/950w/via/images/2022/09/12/27334-istockgetty-images-plusprostock-studio-24_source_file.jpg" alt="Face Detection">
+            </div>
+            <p>Face Analyize</p>
+        </div>
+    </div>
+
+    <div class="bottom-card">
+      <div class="card" id="recommendedCard">
+        <div class="card-circle">
+            <img src="https://cdn.law.asia/wp-content/uploads/2024/05/New-national-food-safety-standards-aim-to-clarify-regulation.jpg" alt="Recommended Food">
+        </div>
+        <p>Recommended Food for your body type and vitamin efficiency</p>
+    </div>
+    
+
+        <div id="questionContainer">
+           
+          <!-- Close Button -->
+    <span class="close-questionnaire" onclick="closeQuestionnaire()" style="position: absolute; top: 10px; right: 20px; font-size: 24px; cursor: pointer;">×</span>
+          <!-- ❌ Close Button -->
+    <span id="closeQuestionBtn" style="
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #333;">&times;</span>
+        
+          <!-- questions go here -->
+          <div id="questionText">…</div>
+          <button id="nextBtn" onclick="nextQuestion()">Next</button>
+<button id="doneBtn" style="display:none;" onclick="analyzeBodyType()">Done</button>
+
+          
+  <!-- ✅ Result will appear here after clicking Done -->
+  <div id="body-type-result" style="display:none; margin-top:20px;
+  padding:10px; background:#eef; border-radius:8px;
+  text-align:center;"></div>
+</div>
+ 
+
+         
+    <!-- Face Analyze Popup -->
+<div id="face-analyze-popup" class="popup-overlay">
+  <div class="popup-content" style="display: flex; align-items: center; justify-content: center; gap: 40px;">
+
+    <span class="close-btn" onclick="closeFaceAnalyzePopup()">×</span>
+
+    <!-- LEFT: Video/Circle Frame -->
+    <div class="video-circle-container">
+      <div class="circle-frame">
+        <img id="video-icon" src=" https://img.freepik.com/free-photo/facial-recognition-collage-concept_23-2150038886.jpg?semt=ais_hybrid&w=740" alt="Profile Icon">
+        <video id="video" autoplay muted></video>
+        <img id="captured-img" style="display: none;">
+        <button class="camera-icon-btn" onclick="startCameraFromIcon()">
+          <img src="https://pixsector.com/cache/d01b7e30/av7801257c459e42a24b5.png" alt="camera" class="camera-icon-img">
+        </button>
+      </div>
+
+      <button id="captureBtn" onclick="captureImage()" style="display: none;">Capture</button>
+      <button id="retakeBtn" onclick="retakeImage()" style="display: none;">Retake</button>
+      <button id="analyzeBtn" style="display: none;" onclick="analyzeImage()">Analyze</button>
+    </div>
+
+    <!-- RIGHT: Result -->
+    <div id="analysis-result" style="display: none;">
+      Nutrient Deficiency: Vitamin D
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("recommendedCard").addEventListener("click", function () {
+      alert("Working in progress...");
+    });
+  });
+</script>
+
+
+        <script src="login next.js"></script>
+    </div>
+
+</body>
+</html>
